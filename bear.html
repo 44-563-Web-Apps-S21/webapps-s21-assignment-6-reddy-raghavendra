@@ -3,6 +3,12 @@
 
 <head>
     <title>Raghavendra builds a bear</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -10,25 +16,56 @@
     <h2>Raghavendra builds a bear</h2>
 
     <form>
-        <input type="checkbox" id="cb1_hat" name="hat" value="hat" checked>
-        <label for="cb1_hat">hat</label></br>
-        <input type="checkbox" id="cb1_scarf" name="scarf" value="scarf">
-        <label for="cb1_scarf">scarf</label></br>
-        <input type="checkbox" id="cb1_shirt" name="shirt" value="shirt">
-        <label for="cb1_shirt">hat</label></br>
-
-        <input type="button" onclick="startBear()" value="Start a bear">
-
+        <div class="input-group mb-3 col-lg-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" id="cb1_hat" name="hat" value="hat" checked>
+                </div>
+            </div>
+            <label class="form-control text-primary" for="cb1_hat">hat</label></br>
+        </div>
+        <div class="input-group mb-3 col-lg-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" id="cb1_scarf" name="scarf" value="scarf">
+                </div>
+            </div>
+            <label class="form-control text-primary" for="cb1_scarf">scarf</label></br>
+        </div>
+        <div class="input-group mb-3 col-lg-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" id="cb1_shirt" name="shirt" value="shirt">
+                </div>
+            </div>
+            <label class="form-control text-primary" for="cb1_shirt">hat</label></br>
+        </div>
+        <div class="input-group mb-3 col-lg-2">
+            <input class="btn btn-info" type="button" onclick="startBear()" value="Start a bear">
+        </div>
     </form>
     <form>
-        <label for="fm2_property">Enter a Property</label>
-        <input type="text" id="fm2_property" value="color"><br>
-        <label for="fm2_value">Enter a value</label>
-        <input type="text" id="fm2_value"><br>
-        <input type="button" id="fm2_button" onclick="updatebear()" value="Update the bear">
-    </form>
+        <div class="form-group row">
+            <label for="fm2_property" class="col-sm-2 col-form-label">Enter a Property</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="fm2_property" value="color"><br>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="fm2_value" class="col-sm-2 col-form-label"> Enter a value</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" id="fm2_value"><br>
+            </div>
+        </div>
 
-    <p id="result"></p>
+
+        <input class="btn btn-primary" type="button" id="fm2_button" onclick="updatebear()" value="Update the bear">
+    </form>
+    <div class="form-group col-lg-4">
+        <br>
+        <p class="bg-warning" id="result"></p>
+    </div>
+
 
     <script>
         var my_bear = {};
