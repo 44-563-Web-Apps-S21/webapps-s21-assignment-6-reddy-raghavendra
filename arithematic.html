@@ -20,10 +20,25 @@
 
         <input type="button" onclick=permutations() value="Compute">
     </form>
-
-
     <p id="result"></p>
+    <form>
+        <input type="radio" id="rb_add" name="arithematic" value="plus" checked onclick="processRadio()">
+        <label for="rb_plus"><b>+</b></label><br>
 
+        <input type="radio" id="rb_minus" name="arithematic" value="minus" onclick="processRadio()">
+        <label for="rb_minus"><b>-</b></label><br>
+
+        <input type="radio" id="rb_times" name="arithematic" value="times" onclick="processRadio()">
+        <label for="rb_times"><b>*</b></label><br>
+
+        <input type="radio" id="rb_divide" name="arithematic" value="divide" onclick="processRadio()">
+        <label for="rb_divide"><b>/</b></label>
+
+    </form>
+
+
+
+    <p id="operation"></p>
     <script>
         function permutations() {
             var firstNumber = document.getElementById("number1").value;
@@ -34,6 +49,30 @@
             }
             var out = document.getElementById("result");
             out.innerHTML = firstNumber + " permute " + secondNumber + " is " + product;
+
+
+        }
+
+        function processRadio() {
+            var plus = document.getElementById("rb_add").checked;
+            var minus = document.getElementById("rb_minus").checked;
+            var times = document.getElementById("rb_times").checked;
+            var divide = document.getElementById("rb_divide").checked;
+            var output;
+            var firstNumber = document.getElementById("number1").value;
+            var secondNumber = document.getElementById("number2").value;
+            if (plus == true) {
+                output = parseInt(firstNumber) + parseInt(secondNumber);
+            } else if (minus == true) {
+                output = firstNumber - secondNumber;
+            } else if (times == true) {
+                output = firstNumber * secondNumber;
+            } else {
+                output = firstNumber / secondNumber;
+            }
+            var out = document.getElementById("operation");
+            out.innerHTML = "Ther arithematic operation value is: " + output;
+
 
 
         }

@@ -20,7 +20,13 @@
         <input type="button" onclick="startBear()" value="Start a bear">
 
     </form>
-
+    <form>
+        <label for="fm2_property">Enter a Property</label>
+        <input type="text" id="fm2_property" value="color"><br>
+        <label for="fm2_value">Enter a value</label>
+        <input type="text" id="fm2_value"><br>
+        <input type="button" id="fm2_button" onclick="updatebear()" value="Update the bear">
+    </form>
 
     <p id="result"></p>
 
@@ -37,6 +43,23 @@
             if (document.getElementById("cb1_shirt").checked == true) {
                 my_bear.shirt = true;
             }
+            var out = document.getElementById("result");
+            var data;
+            for (var key in my_bear) {
+                if (my_bear.hasOwnProperty(key)) {
+                    if (data == undefined) {
+                        data = key + " : " + my_bear[key];
+                    } else {
+                        data = data + ", " + key + " : " + my_bear[key];
+                    }
+
+                }
+            }
+            out.innerHTML = data;
+        }
+
+        function updatebear() {
+            my_bear[document.getElementById("fm2_property").value] = document.getElementById("fm2_value").value;
             var out = document.getElementById("result");
             var data;
             for (var key in my_bear) {
